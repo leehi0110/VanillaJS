@@ -6,4 +6,4 @@
 
 ## Login Form
 
-> HTML / CSS 를 이용한 간단한 Login Form
+> HTML / CSS 를 이용한 간단한 Login Form 구현
