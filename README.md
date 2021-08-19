@@ -19,3 +19,8 @@
 > webkit-box-reflect를 이용해 요소를 반사하는 효과를 구현
 >
 > - 현재 지원이 안되는 브라우져가 있기 때문에 사용하지 않는 것이 좋다.
+
+## Responsive Navigation Bar
+
+> JS onclick을 이용해 네이게이션 및 fullPage 구현
+> @media를 이용해 특정 사이즈에 맞는 반응형 네이게이션 구현
