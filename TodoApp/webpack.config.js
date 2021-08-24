@@ -3,7 +3,7 @@ const BrowserSyncPlugin = require("browser-sync-webpack-plugin"); // 설치한 �
 
 module.exports = {
   mode: "development",
-  entry: "app.js", // 번들 작업할 파일
+  entry: "index.js", // 번들 작업할 파일
   output: {
     path: path.resolve(__dirname, "dist"), // 번들화 된 파일 경로
     filename: "bundle.js", // 파일 명
