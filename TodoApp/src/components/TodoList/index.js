@@ -1,7 +1,9 @@
-export default function TodoList({ $app, initialState }) {
+export default function TodoList({ $app, initialState, deleteItem }) {
   // 부모 컴포넌트로 부터 받은 state
   this.state = initialState;
+  this.deleteItem = deleteItem;
   this.$target = document.createElement("div");
+  this.$target.classList.add("todoList");
   $app.appendChild(this.$target);
 
   // 템플릿 반환 함수
@@ -10,9 +12,9 @@ export default function TodoList({ $app, initialState }) {
       ${this.state
         .map(
           (item) => `
-        <div data-idx="${item.idx}" class="todoItem">
+        <div data-item-idx="${item.idx}" class="todoItem">
           <p>${item.title}</p>
-          <button data-delete="${item.idx}">X</button>
+          <button class="deleteBtn">-</button>
         </div>
       `
         )
@@ -29,6 +31,15 @@ export default function TodoList({ $app, initialState }) {
     this.state = nextState;
     this.render();
   };
+
+  this.$target.addEventListener("click", (e) => {
+    const $item = e.target.closest(".todoItem");
+
+    if ($item) {
+      const { itemIdx } = $item.dataset;
+      this.deleteItem(parseInt(itemIdx));
+    }
+  });
 
   this.render();
 }

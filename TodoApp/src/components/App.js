@@ -2,6 +2,11 @@ import TodoList from "../components/TodoList/index";
 import AddTodo from "../components/AddTodo/index";
 
 export default function App($app) {
+  this.$target = document.createElement("h1");
+  this.$target.innerText = "Let's Todos";
+  this.$target.className = "mainTitle";
+  $app.appendChild(this.$target);
+
   this.state = {
     todos: getItemFromLocalStorage("todos"),
     todoIdx: getItemFromLocalStorage("todoIdx"),
@@ -14,18 +19,14 @@ export default function App($app) {
 
     if (getJsonData !== null) {
       return JSON.parse(getJsonData);
-    } else if (key === "todos") return [];
-    else return 0;
+    } else if (key === "todos") {
+      return [];
+    } else return 0;
   }
 
   function setItemToLocalStorage(key, value) {
     localStorage.setItem(key, JSON.stringify(value));
   }
-
-  const todoList = new TodoList({
-    $app,
-    initialState: this.state.todos,
-  });
 
   const addTodo = new AddTodo({
     $app,
@@ -36,11 +37,33 @@ export default function App($app) {
       };
 
       const newState = {
-        ...this.$state,
         todos: [...this.state.todos, newItem],
+        todoIdx: this.state.todoIdx,
       };
 
       this.setState(newState);
+
+      setItemToLocalStorage("todos", this.state.todos);
+      setItemToLocalStorage("todoIdx", this.state.todoIdx);
+    },
+  });
+
+  const todoList = new TodoList({
+    $app,
+    initialState: this.state.todos,
+    deleteItem: (idx) => {
+      const items = this.state.todos;
+      const deleteIdx = items.findIndex((item) => item.idx === idx);
+
+      items.splice(deleteIdx, 1);
+
+      const newState = {
+        ...this.state,
+        todos: items,
+      };
+
+      this.setState(newState);
+
       setItemToLocalStorage("todos", this.state.todos);
     },
   });

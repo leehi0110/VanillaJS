@@ -15,5 +15,9 @@
     "babel-preset-env": "1.7.0",
     "browser-sync": "2.27.5",
     "browser-sync-webpack-plugin": "2.3.0"
+  },
+  "dependencies": {
+    "css-loader": "6.2.0",
+    "style-loader": "3.2.1"
   }
 }

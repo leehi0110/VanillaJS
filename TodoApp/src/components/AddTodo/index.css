@@ -1,0 +1,42 @@
+.inputContainer {
+  width: 100%;
+  padding: 20px 20px;
+  /* background-color: red; */
+  
+}
+
+.inputBox {
+  width: 100%;
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  border: 1px solid #fff;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.inputBox input {
+  width: 100%;
+  padding-left: 10px;
+  padding-right: 5px;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.inputBox .addBtn {
+  padding: 5px 10px;
+  border: none;
+  background: transparent;
+  border: 2px solid #eff2ed;
+  border-radius: 20px;
+
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: #8c9eb8;
+}
+
+.inputBox .addBtn:hover {
+  background-color: #ff0fed;
+  color: #ffffff;
+}
