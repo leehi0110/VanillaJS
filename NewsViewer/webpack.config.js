@@ -1,5 +1,6 @@
 const path = require("path");
 const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   mode: "development",
@@ -33,5 +34,6 @@ module.exports = {
       files: ["./*.html"],
       server: { baseDir: ["./"] },
     }),
+    new Dotenv(),
   ],
 };
