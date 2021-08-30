@@ -1,3 +1,4 @@
 import Style from "./index.css";
+import App from "./src/App";
 
-console.log("start");
+new App(document.querySelector("#app"));
