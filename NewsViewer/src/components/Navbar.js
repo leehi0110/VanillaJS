@@ -13,7 +13,9 @@ export default function Navbar({ $target, initialState, changeCategory }) {
           ${this.state.categorys
             .map(
               (item) =>
-                `<li class="navItem" data-category="${item.category}">${item.title}</li>`
+                `<li class="navItem ${
+                  this.state.selectCategory === item.category ? "active" : ""
+                }" data-category="${item.category}">${item.title}</li>`
             )
             .join(" ")}
         </ul>
