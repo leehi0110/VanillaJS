@@ -29,3 +29,8 @@
 
 > VanillaJS를 이용한 Todo 개발 <br>
 > 함수형 컴포넌트 형태로 개발
+
+## NewsViewer
+
+> news API를 이용해 분야별 기사를 제공한다.
+> 함수형 컴포넌트 형태로 개발
